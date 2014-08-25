@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Of Fish & Chips: Alpha Atlantis</title>
+		<script src="js/createjs-2013.12.12.min.js"></script>
+		<script src="js/ndgmr.Collision.js"></script>
+		<script src="js/scene.js"></script>
+		<script src="js/load_scene.js"></script>
+		<script src="js/cutscene.js"></script>
+		
+		<script src="js/enemy.js"></script>
+		<script src="js/level.js"></script>
+	</head>
+	
+	<body onLoad="init();" style="background-color:#01A9DB; color:white">
+		<div style="font-family:'Lucida Console', Monaco, monospace; font-size:x-large">
+			<a href="http://husathap.github.io/OFACAA" style="color:white; text-decoration:none; font-weight:bold">< Back</a>
+		</div>
+		<div style="text-align:center">
+		<canvas id="game" width="800" height="600" style="margin-left:auto; margin-right:auto; border:2px white solid">
+			This game is not supported on your browser. Please get one of the following browsers: Chrome, IE11+.
+		</canvas>
+		</div>
+		
+		<script>
+			var stage; 
+			var curScene;
+			var res;
+			var curBackgroundMusic;
+
+			// Initialize the canvas.
+			function init() {
+				stage = new createjs.Stage("game");
+				
+				// Create the first scene in the game!
+				curScene = new Loader();
+				
+				// Set up the update loop.
+				createjs.Ticker.setFPS(30);
+				createjs.Ticker.addEventListener("tick", tick);
+			}
+			
+			// Continuous updating the current scene.
+			function tick() {
+				if (curScene != null)
+					curScene.update();
+				stage.update();
+			}
+			
+		</script>
+	</body>
+</html>
